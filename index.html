@@ -150,9 +150,15 @@
                     });
                     socket.on('round', (room)=>{
                         if (room.abondon){
-                            document.getElementById('onlineButton').innerText = "Opponent abondoned game !!!!";
+                            var button = document.getElementById('onlineButton')
+                            button.innerText = "Opponent abondoned game !!!!";
+                            button.style.backgroundColor = 'red';
+                            button.style.color = 'white';
+                            button.style.fontSize = '20px';
                             onlineStatus.draw_ = false
-                            window.location.reload();
+                            setTimeout(function() {
+                                location.reload();
+                            }, 2000);
                         }
                         else{
                             let draw_ = false
