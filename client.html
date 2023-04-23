@@ -151,48 +151,50 @@
                     socket.on('round', (room)=>{
                         if (room.abondon){
                             document.getElementById('onlineButton').innerText = "Opponent abondoned game !!!!";
-                        }
-                        console.log(room)
-                        let draw_ = false
-                        console.log(room.status + " " + onlineStatus.move + " " + onlineStatus.isOnline);
-                        if(room.status)
-                            firstSetupOnline = true;
-                        if(room.status == onlineStatus.move)
-                        {
-                            if(!room.status){
-                                document.getElementById('onlineButton').innerText = "Choose Place of Your Mine";
-                                draw_ = true
-                            }
-                            else
-                                document.getElementById('onlineButton').innerText = "Guess place of opponent mine";
-                                draw_ = true
+                            onlineStatus.draw_ = false
                         }
                         else{
-                            console.log("Wait opponent Move called...")
-                            document.getElementById('onlineButton').innerText = "Wait Opponent Move"
-                            draw_ = false
-                        }
-                        if(firstSetupOnline){
-                            if(onlineStatus.roomNo*2 == onlineStatus.id){
-                                    opponent = room.user1;
-                                    onlineStatus = room.user2;
+                            let draw_ = false
+                            console.log(room.status + " " + onlineStatus.move + " " + onlineStatus.isOnline);
+                            if(room.status)
+                                firstSetupOnline = true;
+                            if(room.status == onlineStatus.move)
+                            {
+                                if(!room.status){
+                                    document.getElementById('onlineButton').innerText = "Choose Place of Your Mine";
+                                    draw_ = true
+                                }
+                                else
+                                    document.getElementById('onlineButton').innerText = "Guess place of opponent mine";
+                                    draw_ = true
                             }
                             else{
-                                opponent = room.user2;
-                                onlineStatus = room.user1;
+                                console.log("Wait opponent Move called...")
+                                document.getElementById('onlineButton').innerText = "Wait Opponent Move"
+                                draw_ = false
                             }
-                            if(opponent.isMoved){
-                                drawOpponent(opponent);
+                            if(firstSetupOnline){
+                                if(onlineStatus.roomNo*2 == onlineStatus.id){
+                                        opponent = room.user1;
+                                        onlineStatus = room.user2;
+                                }
+                                else{
+                                    opponent = room.user2;
+                                    onlineStatus = room.user1;
+                                }
+                                if(opponent.isMoved){
+                                    drawOpponent(opponent);
+                                }
+                                if(onlineStatus.finded){
+                                    onlineStatus.finded = false;
+                                    console.log("DrawMine called...")
+                                    drawMine(opponent.mineX, opponent.mineY, opponent.color);
+                                }
                             }
-                            if(onlineStatus.finded){
-                                onlineStatus.finded = false;
-                                console.log("DrawMine called...")
-                                drawMine(opponent.mineX, opponent.mineY, opponent.color);
+                            onlineStatus.draw_ = draw_
+                            if(opponent){
+                                document.getElementById('gameInfo').innerText = "Your score: " + onlineStatus.score + "\n Enemy Score: " + opponent.score
                             }
-                        }
-                        onlineStatus.draw_ = draw_
-                        if(opponent){
-                            document.getElementById('gameInfo').innerText = "Your score: " + onlineStatus.score + "\n Enemy Score: " + opponent.score
                         }
                     });
                 }
