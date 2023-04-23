@@ -1,6 +1,6 @@
 # Detect Mine
 
-This is both Singleplayer or Multiplayer.
+This is a game that can be played either in singleplayer or multiplayer mode.
 
 In Singleplayer purpose is find to as many mines as possible without making three mistakes.
 
@@ -8,11 +8,14 @@ In Multiplayer purpose is to find the mines that the opponent has hidden while e
 
 ## Usage
 
-Open client.html in browser.
+To play the game, open the client.html file in your web browser.
 
-If u want to play Singleplayer click Start and wait Red ALERT Button after that you can try to find hidden mine by clicking the game area.
+If you want to play in singleplayer mode, click on the "Start" button and wait for the red "ALERT" button to appear. Once it appears, you can try to find the hidden mines by clicking on the game area.
 
-If u want to play Multiplayer click Start and wait Red ALERT then click Play Online. And then wait opponent. For trial you can open from another browser same page to play multiplayer with yourself.
+If you want to play in multiplayer mode, click on the "Start" button and wait for the red "ALERT" button to appear. Then, click on the "Play Online" button and wait for an opponent to join the game. If you want to test the multiplayer mode, you can open the game in another browser window and play against yourself.
+
+    Note: Before clicking on the "Play Online" button, you must click on the "Start" button.
+
 
 ### Singleplayer
 
