@@ -8,7 +8,7 @@ In Multiplayer purpose is to find the mines that the opponent has hidden while e
 
 ## Usage
 
-To play the game, open the client.html file in your web browser.
+To play the game, open the client.html file in your web browser or http://3.64.126.246/.
 
 If you want to play in singleplayer mode, click on the "Start" button and wait for the red "ALERT" button to appear. Once it appears, you can try to find the hidden mines by clicking on the game area.
 
