@@ -88,8 +88,13 @@ io.on('connection', (socket) => {
     socket.on('disconnect', () => {
       if(isOnline){
         clientNo--;
-        io.to(Math.round((id-1)/2)).emit('round',{abondon:true});
-        rooms.splice(Math.round((id-1)/2),1);
+        if (id % 2 == 0)
+          roomNo = Math.round((id-1)/2)
+        else
+          roomNo = Math.round((id)/2)
+
+        io.to(roomNo).emit('round',{abondon:true});
+        rooms.splice(roomNo,1);
       }
       console.log('user disconnected');
     });
